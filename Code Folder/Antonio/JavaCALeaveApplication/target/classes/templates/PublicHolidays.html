@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<div th:if="${not #lists.isEmpty(publicholidays)}">
+		<h2>This is Public Holiday page</h2>
+		 <table class="table table-striped">
+            <tr>
+                <th>Holiday Name</th>
+                <th>Holiday Date</th>
+            </tr>
+            
+            <tr th:each="publicholiday : ${publicholidays}">	
+            	<td th:text="${publicholiday.holidayname}">Holiday Name</td>
+            	<td th:text="${publicholiday.holidaydate}">Holiday Date</td>
+            	<td><a th:href="${'/publicholidays/edit/' + publicholiday.id}">Edit</a>
+            	<td><a th:href="${'/publicholidays/delete/'+ publicholiday.id}">Delete</a>
+            </tr>
+            <td><a th:href="${'/createpublicholiday'}">Create</a></td>
+         </table>
+         
+	</div>
+</div>
+
+</body>
+</html>

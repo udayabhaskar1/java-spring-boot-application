@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>This is login page for Administrator</h1>
+	<form th:object="${admin}" th:action="@{/authenticate}" method="post">
+	<fieldset>
+		User Name : <input type="text" th:field="*{username}">
+	</fieldset>
+	<fieldset>
+		Password : <input type="password" th:field="*{password}">
+	</fieldset>
+	<input type="submit" value="Login">
+	</form>
+</body>
+</html>

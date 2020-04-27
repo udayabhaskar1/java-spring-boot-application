@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Leave Types</title>
+<th:block th:include="Layout/Layout"></th:block>
+</head>
+<body>
+<div>
+	<h1>Leave Types</h1>
+	<div th:if="${not #lists.isEmpty(leavetypes)}">
+	<table>
+			<tr>	
+                <th>Role</th>
+                <th>Annual Leave Days</th>
+                <th>Medical Leave Days</th>
+        	</tr>
+         	<tr th:each="leavetype : ${leavetypes}">	
+            	<td th:text="${leavetype.role}">Role</td>
+            	<td th:text="${leavetype.annualleavedays}">Annual Leave Days</td>
+            	<td th:text="${leavetype.medicalleavedays}">Medical Leave Days</td>
+            	<td><a th:href="${'/leavetypes/edit/' + leavetype.id}">Edit</a></td>
+            	<td><a th:href="${'/leavetypes/delete/'+ leavetype.id}">Delete</a></td>
+            </tr>
+            <td><button><a th:href="${'/createleavetype'}">Create Leave Types</a></button></td>
+             <td><button><a th:href="${'/loginadmin'}">Back to Homepage</a></button></td>
+     </table>
+	</div>
+</div>	
+</body>
+</html>

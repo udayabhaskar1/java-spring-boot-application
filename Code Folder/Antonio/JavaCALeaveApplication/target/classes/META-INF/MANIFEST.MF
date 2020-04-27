@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: JavaCA
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Antonio
+Implementation-Vendor-Id: sg.nus.iss
+Build-Jdk: 1.8.0_212
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/JavaCA
+Created-By: Maven Integration for Eclipse
+

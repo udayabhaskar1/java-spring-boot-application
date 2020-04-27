@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Leave Type Form </title>
+</head>
+<body>
+<h1>Leave Type Form</h1>
+	<form th:object="${leavetype}" th:action="@{/leavetypes}" method="post">
+		<input type="hidden" th:field="*{id}" />
+		<fieldset>
+			Role : <input type = "text" th:field="*{role}">
+		</fieldset>
+		<fieldset>
+			Annual Leave Days: <input type = "text" th:field="*{annualleavedays}">
+		</fieldset>
+		<fieldset>
+			Medical Leave Days: <input type = "text" th:field="*{medicalleavedays}">
+		</fieldset>
+		<fieldset>
+			<input type = "submit" Value="Save">
+		</fieldset>
+	</form>
+
+</body>
+</html>

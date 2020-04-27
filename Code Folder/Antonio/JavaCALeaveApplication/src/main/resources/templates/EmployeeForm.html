@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Form</title>
+</head>
+<body>
+<h1>Employee Form</h1>
+	<form th:object="${employee}" th:action="@{/employees}" method="post" >
+		<input type="hidden" th:field="*{id}" />
+		<fieldset>
+		Role : 
+		<select th:field="*{role}">
+    		<option th:value="Manager" th:text="Manager"></option>
+    		<option th:value="Employee" th:text="Employee"></option>
+    		<option th:value="Admin" th:text="Admin"></option>
+		</select>
+		<!--Role : <input type = "text" th:field="*{role}">  -->	
+			<p th:if="${#fields.hasErrors('role')}" th:errors="*{role}">Role Error</p>
+		</fieldset>
+		<fieldset>
+			User Name : <input type = "text" th:field="*{username}">
+			<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Fill in User Name</p>
+		</fieldset>			
+		<fieldset>
+			Password : <input type = "password" th:field="*{password}">
+			<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Fill in Password</p>
+		</fieldset>
+		<fieldset>
+			First Name : <input type = "text" th:field="*{firstname}">
+			<p th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">Fill in First name</p>
+		</fieldset>			
+		<fieldset>
+			Last Name : <input type = "text" th:field="*{lastname}">
+			<p th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Fill in Last Name</p>
+		</fieldset>	
+		<!-- <fieldset>
+			Managed By : <input type = "text" th:field="*{managerid}">
+		</fieldset> -->	
+		<fieldset>
+			Annual Leave Entitlement : <input type = "number" th:field="*{annualleaveentitlement}">
+		    <p th:if="${#fields.hasErrors('annualleaveentitlement')}" th:errors="*{annualleaveentitlement}"></p>
+		</fieldset>	
+		<fieldset>
+			Medical Leave Entitlement : <input type = "number" th:field="*{medicalleaveentitlement}">
+			<p th:if="${#fields.hasErrors('medicalleaveentitlement')}" th:errors="*{medicalleaveentitlement}"></p>
+		</fieldset>	
+		<fieldset>
+			Annual Leave Balance: <input type = "number" th:field="*{annualleavebalance}">
+		</fieldset>	
+		<fieldset>
+			Medical Leave Balance: <input type = "number" th:field="*{medicalleavebalance}">
+		</fieldset>	
+		<fieldset>
+			 <input type = "submit" Value="Save">
+		</fieldset>	
+		
+		
+	
+	</form>
+	
+
+</body>
+</html>

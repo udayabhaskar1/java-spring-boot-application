@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Form</title>
+</head>
+<body>
+<div>
+	<div th:if="${not #lists.isEmpty(employees)}">
+		<h2>This is employees page</h2>
+		 <table class="table table-striped">
+            <tr>
+                <th>Role</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Annual Leave Entitlement</th>
+                <th>Annual Leave Balance</th>
+                <th>Medical Leave Entitlement</th>
+                <th>Medical Leave Balance</th>
+            </tr>
+            <tr th:each="employee : ${employees}">	
+            	<td th:text="${employee.role}">Role</td>
+            	<td th:text="${employee.firstname}">First Name</td>
+            	<td th:text="${employee.lastname}">Last Name</td>
+            	<!-- <td th:text="${employee.managerid}">Manager Id</td> -->
+            	<td th:text="${employee.annualleaveentitlement}">Annual Leave Entitlement</td>
+            	<td th:text="${employee.annualleavebalance}">Annual Leave Balance</td>          	
+            	<td th:text="${employee.medicalleaveentitlement}">Medical Leave Entitlement</td>
+            	<td th:text="${employee.medicalleavebalance}">Medical Leave Balance</td>
+            	<td><a th:href="${'/employees/edit/' + employee.id}">Edit</a>
+            	<td><a th:href="${'/employees/delete/'+ employee.id}">Delete</a>
+            </tr>
+         </table>
+	</div>
+</div>
+
+</body>
+</html>

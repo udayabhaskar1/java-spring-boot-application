@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Form</title>
+<th:block th:include="Layout/Layout"></th:block>
+</head>
+<body>
+<div>
+	<div th:if="${not #lists.isEmpty(employees)}">
+		<h2>This is employees page</h2>
+		 <table class="table table-striped">
+            <tr>
+                <th>Role</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Annual Leave Entitlement</th>
+                <th>Annual Leave Balance</th>
+                <th>Medical Leave Entitlement</th>
+                <th>Medical Leave Balance</th>
+                <th>Report To</th>
+                <th>Compen Leave Entitled</th>
+                <th>Compen Leave Bal</th>
+                <th colspan="2">Admin Actions</th>
+            </tr>
+            <tr th:each="employee : ${employees}">	
+            	<td th:text="${employee.role}">Role</td>
+            	<td th:text="${employee.firstname}">First Name</td>
+            	<td th:text="${employee.lastname}">Last Name</td>
+            	<td th:text="${employee.email}">Email</td>
+            	<td th:text="${employee.annual_leave_entitled}">Annual Leave Entitlement</td>
+            	<td th:text="${employee.annual_leave_bal}">Annual Leave Balance</td>          	
+            	<td th:text="${employee.medical_leave_entitled}">Medical Leave Entitlement</td>
+            	<td th:text="${employee.medical_leave_bal}">Medical Leave Balance</td>
+            	<td th:text="${employee.report_to}">Report To</td>
+            	<td th:text="${employee.compensation_leave_entitled}">Compen Leave Entitled</td>
+            	<td th:text="${employee.compensation_leave_bal}">Compen Leave Bal</td>
+            	<td><a th:href="${'/employees/edit/' + employee.id}">Edit</a>
+            	<td><a th:href="${'/employees/delete/'+ employee.id}">Delete</a>
+            </tr>
+             
+         </table>
+         <a th:href="${'/employees/add'}">Create Employee</a>
+         <a th:href="${'/home/index'}">Back to Home Page</a>
+	</div>
+</div>
+
+</body>
+</html>

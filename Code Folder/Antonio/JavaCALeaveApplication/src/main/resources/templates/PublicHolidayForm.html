@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Public Holiday Form </title>
+</head>
+<body>
+<h1>Public Holiday Form</h1>
+	<form th:object="${publicholiday}" th:action="@{/publicholidaylists}" method="post">
+		<input type="hidden" th:field="*{id}" />
+		<fieldset>
+			Holiday Name : <input type = "text" th:field="*{holidayname}">
+		</fieldset>
+		<fieldset>
+			Holiday Date : <input type = "text" th:field="*{holidaydate}">
+		</fieldset>
+		<fieldset>
+			<input type = "submit" Value="Save">
+		</fieldset>
+	</form>
+
+</body>
+</html>
